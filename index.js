@@ -1,17 +1,4 @@
-const cells = document.querySelectorAll("#calendar td");
-const month = document.getElementById("month");
-const year = document.getElementById("year");
-const title = document.getElementById("title");
-const button = document.getElementById("generate");
-const dayInput = document.getElementById("day");
-const saveBtn = document.getElementById("save");
-const monthNames = ["January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"];
-const today = new Date();
-const currentMonth = today.getMonth() + 1;
-const currentYear = today.getFullYear();
 const calendar = document.getElementById("calendar");
-
 for (let i = 0; i < 6; i++) {
     const row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
@@ -19,6 +6,19 @@ for (let i = 0; i < 6; i++) {
     }
     calendar.appendChild(row);
 }
+const month = document.getElementById("month");
+const year = document.getElementById("year");
+const title = document.getElementById("title");
+const button = document.getElementById("generate");
+const dayInput = document.getElementById("day");
+const saveBtn = document.getElementById("save");
+const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+    
+const today = new Date();
+const cells = document.querySelectorAll("#calendar td");
+const currentMonth = today.getMonth() + 1;
+const currentYear = today.getFullYear();
 
 function Calendar() {
     const monthValue = Number(month.value);
@@ -110,7 +110,7 @@ saveBtn.addEventListener("click", function () {
     const key = m + "-" + d;
     if (!list.includes(key)) {
         list.push(key);
-        setCookie("marked", list.join(","));
+        setCookie("marked", list.join(",")); 
     }
 
     Calendar();
